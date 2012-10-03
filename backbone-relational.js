@@ -840,6 +840,12 @@
 		
 		findRelated: function( options ) {
 			if ( this.keyContents ) {
+
+				// MMI: Added parsing of collection models
+                if (options.parse === true){
+                    this.keyContents = this.related.parse(this.keyContents);
+                }
+
 				var models = [];
 
 				if ( this.keyContents instanceof Backbone.Collection ) {
